@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Movies.Data;
 using Movies.Models;
 using Movies.Services;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace Movies
 {
@@ -53,6 +54,11 @@ namespace Movies
             }
 
             app.UseStaticFiles();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             app.UseAuthentication();
 
