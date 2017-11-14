@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Models;
 
 namespace Movies.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -15,17 +17,13 @@ namespace Movies.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Search()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Prefs()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 

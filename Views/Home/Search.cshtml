@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+
+<div id="app" class="container">
+    <header>
+        <search-box v-on:text-entered="search"></search-box>
+        <div class="menu">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">ADD</a></li>
+                <li><a asp-controller="Home" asp-action="Search" class="selected">VIEW</a></li>
+                <li><a asp-controller="Home" asp-action="Prefs">PREFERENCES</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <movies-list
+            v-bind:movies="movies"
+            v-on:add-request="addToQueue"
+            v-on:delete-request="deleteMovie">
+        </movies-list>
+    </main>
+    <footer>
+        <movie-queue
+            v-bind:movies="queuedMovies"
+            v-on:delete-request="removeFromQueue">
+        </movie-queue>
+    </footer>
+</div>
+
+<script src="~/js/searchBox.js"></script>
+<script src="~/js/moviesList.js"></script>
+<script src="~/js/movieQueue.js"></script>
+<script src="~/js/savedMovies.js"></script>
