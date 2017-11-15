@@ -9,3 +9,8 @@ Get filter working
 Add spa support (vuu routes)
 
 Document deployment script
+
+Figure out bundling and minification
+
+Add enlarged image modal that allows scrolling through movies with arrow keys
+
