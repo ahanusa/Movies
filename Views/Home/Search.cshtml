@@ -4,7 +4,7 @@
 
 <div id="app" class="container">
     <header>
-        <search-box v-on:text-entered="search"></search-box>
+        <search-box v-model="searchText"></search-box>
         <div class="menu">
             <ul>
                 <li><a asp-controller="Home" asp-action="Index">ADD</a></li>
@@ -15,7 +15,7 @@
     </header>
     <main>
         <movies-list
-            v-bind:movies="movies"
+            v-bind:movies="filteredMovies"
             v-on:add-request="addToQueue"
             v-on:delete-request="deleteMovie">
         </movies-list>

@@ -2,22 +2,14 @@ var app = new Vue({
   el: '#app',
   data: {
     movies: [],
-    queuedMovies: []
+    queuedMovies: [],
+    searchText: ''
   },
   created: function() {
     let endpoint = "/api/movies";
-    axios.get(endpoint).then(response => app.movies = response.data.map(mapData).sort(m => m.title));
+    axios.get(endpoint).then(response => app.movies = _.sortBy(response.data.map(mapData), "title"));
   },
   methods: {
-    search: function(searchText) {
-      // TODO filter against existing movies
-      if (searchText && searchText.trim().length > 0) {
-        var x = this.movies.filter(movie => movie.title.toLowerCase().startsWith(searchText.toLowerCase()));
-        return x;
-      } else {
-        return this.movies;
-      }
-    },
     addToQueue: function(movieId) {
       var movie = this.movies.find(m => m.id == movieId);
       if (this.queuedMovies.indexOf(movie) === -1) {
@@ -33,6 +25,14 @@ var app = new Vue({
       axios.delete(endpoint).then(response => {
         var movie = this.movies.find(m => m.id == movieId);
         this.movies.splice(this.movies.indexOf(movie), 1);
+      });
+    }
+  },
+  computed: {
+    filteredMovies: function() {
+      if (!this.searchText) { return this.movies }
+      return this.movies.filter(movie => {
+        return movie.title.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
       });
     }
   }

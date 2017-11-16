@@ -4,6 +4,7 @@ Vue.component('searchBox', {
               <input id="search"
                      type="text"
                      v-on:keyup="onTextEntered($event)"
+                     v-on:input="onInput($event)"
                      v-on:click="onSelectAllText($event)" />
              </div>`,
   methods: {
@@ -13,8 +14,8 @@ Vue.component('searchBox', {
     onTextEntered: function(event) {
       this.$emit('text-entered', event.target.value);
     },
-    onKeyEntered: function(event) {
-      this.$emit('key-entered', event.target.value);
+    onInput: function(event) {
+      this.$emit('input', event.target.value);
     }
   }
 });
