@@ -6,15 +6,16 @@ var app = new Vue({
   },
   created: function() {
     let endpoint = "/api/movies";
-    axios.get(endpoint).then(response => app.movies = response.data.map(mapData));
+    axios.get(endpoint).then(response => app.movies = response.data.map(mapData).sort(m => m.title));
   },
   methods: {
     search: function(searchText) {
       // TODO filter against existing movies
       if (searchText && searchText.trim().length > 0) {
-        return this.queuedMovies.filter(m => m.startsWith(searchText));
+        var x = this.movies.filter(movie => movie.title.toLowerCase().startsWith(searchText.toLowerCase()));
+        return x;
       } else {
-        return this.queuedMovies;
+        return this.movies;
       }
     },
     addToQueue: function(movieId) {
