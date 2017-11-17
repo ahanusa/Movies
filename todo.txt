@@ -2,10 +2,6 @@ Add delete confirmation
 
 Add responsive behavior for better phone support
 
-Sort movies by name
-
-Get filter working
-
 Add spa support (vuu routes)
 
 Document deployment script
