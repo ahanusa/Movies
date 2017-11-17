@@ -4,8 +4,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-Movies-AD19B251-8D49-4358-AF84-F0C0A56A9181</UserSecretsId>
   </PropertyGroup>
+
   <ItemGroup>
-    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="app.db" CopyToOutputDirectory="Never" />
   </ItemGroup>
 
   <ItemGroup>
