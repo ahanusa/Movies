@@ -9,9 +9,42 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
+    "outputFileName": "wwwroot/js/prefs/site.min.js",
     "inputFiles": [
-      "wwwroot/js/site.js"
+      "wwwroot/js/prefs/prefs.js",
+      "wwwroot/js/prefs/prefsHost.js"
+    ],
+    // Optionally specify minification options
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/saved/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/shared/searchBox.js",
+      "wwwroot/js/shared/moviesList.js",
+      "wwwroot/js/saved/movieQueue.js",
+      "wwwroot/js/saved/savedMovies.js"
+    ],
+    // Optionally specify minification options
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/search/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/shared/searchBox.js",
+      "wwwroot/js/shared/moviesList.js",
+      "wwwroot/js/search/movieDetails.js",
+      "wwwroot/js/search/main.js"
     ],
     // Optionally specify minification options
     "minify": {
