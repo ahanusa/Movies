@@ -11,3 +11,5 @@ Add enlarged image modal that allows scrolling through movies with arrow keys
 Create backups on server for db and code (db at very least)
 
 Remove "the" from "titles" in filter searches, unless the search text is "the".  This will allow all movies to show that start with "a" when specifying a.  You might have to do a string.length === 1 for that to work.
+
+Figure out how to make changes immediate upon pushing to remote
