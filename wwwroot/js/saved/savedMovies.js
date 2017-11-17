@@ -31,6 +31,11 @@ var app = new Vue({
   computed: {
     filteredMovies: function() {
       if (!this.searchText) { return this.movies }
+      if (this.searchText.length === 1) {
+        return this.movies.filter(movie => {
+          return movie.title.toLowerCase().replace("the ", "").startsWith(this.searchText.toLowerCase());
+        });
+      }
       return this.movies.filter(movie => {
         return movie.title.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
       });
