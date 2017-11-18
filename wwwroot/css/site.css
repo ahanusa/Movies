@@ -230,6 +230,10 @@ input[type=text] {
   margin: 5px;
 }
 
+.login input[type=text] {
+  padding: 5px;
+}
+
 .form-group {
   margin: 5px;
 }
@@ -239,18 +243,6 @@ input[type=text] {
   color: white;
 }
 
-.login button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px;
-  cursor: pointer;
-}
 
 .default-button {
   background-color: #4CAF50; /* Green */
@@ -265,18 +257,14 @@ input[type=text] {
   cursor: pointer;
 }
 
-.login input[type=email] {
-  border: none;
-  margin: 5px;
-  outline: none;
-  background-color: black;
-  color: white;
-  font-size: 20px;
+.login {
+  padding-top: 10px;
 }
 
-.login input[type=password] {
+.login input {
   border: none;
   margin: 5px;
+  padding: 5px;
   outline: none;
   background-color: black;
   color: white;

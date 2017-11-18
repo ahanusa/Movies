@@ -1,5 +1,3 @@
-Add delete confirmation
-
 Add responsive behavior for better phone support
 
 Add spa support (vuu routes)
