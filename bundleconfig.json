@@ -26,6 +26,7 @@
     "outputFileName": "wwwroot/js/saved/site.min.js",
     "inputFiles": [
       "wwwroot/js/shared/searchBox.js",
+      "wwwroot/js/shared/modal.js",
       "wwwroot/js/shared/moviesList.js",
       "wwwroot/js/saved/movieQueue.js",
       "wwwroot/js/saved/savedMovies.js"

@@ -3,7 +3,9 @@ var app = new Vue({
   data: {
     movies: [],
     queuedMovies: [],
-    searchText: ''
+    searchText: '',
+    showModal: false,
+    deleteId: null
   },
   created: function() {
     let endpoint = "/api/movies";
@@ -21,11 +23,19 @@ var app = new Vue({
       this.queuedMovies.splice(this.queuedMovies.indexOf(movie), 1);
     },
     deleteMovie: function(movieId) {
-      let endpoint = `/api/movies/${movieId}`;
-      axios.delete(endpoint).then(response => {
-        var movie = this.movies.find(m => m.id == movieId);
-        this.movies.splice(this.movies.indexOf(movie), 1);
-      });
+      this.deleteId = movieId;
+      this.showModal = true;
+    },
+    closeModal: function(result) {
+      this.showModal = false;
+      if (result) {
+        let movieId = this.deleteId;
+        let endpoint = `/api/movies/${movieId}`;
+        axios.delete(endpoint).then(response => {
+          var movie = this.movies.find(m => m.id == movieId);
+          this.movies.splice(this.movies.indexOf(movie), 1);
+        });
+      }
     }
   },
   computed: {
