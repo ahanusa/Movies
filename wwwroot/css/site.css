@@ -51,7 +51,6 @@ input[type=text] {
   font-size: 20px;
 }
 
-
 .searchBox {
   display: inline;
 }
@@ -59,7 +58,6 @@ input[type=text] {
 .fa {
   color: white;
 }
-
 
 .queued-movie {
   display: inline-block;
@@ -243,7 +241,6 @@ input[type=text] {
   color: white;
 }
 
-
 .default-button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -313,15 +310,15 @@ input[type=text] {
 */
 
 .modal-enter {
-opacity: 0;
+  opacity: 0;
 }
 
 .modal-leave-active {
-opacity: 0;
+  opacity: 0;
 }
 
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
--webkit-transform: scale(1.1);
-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
