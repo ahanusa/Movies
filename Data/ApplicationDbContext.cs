@@ -24,6 +24,7 @@ namespace Movies.Data
         }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<MovieCategory> MovieCategories { get; set; }
     }
 
 }
