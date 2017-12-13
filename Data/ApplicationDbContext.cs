@@ -23,6 +23,7 @@ namespace Movies.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 
 }

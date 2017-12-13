@@ -27,14 +27,16 @@ namespace movies.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Movie movie) {
+        public async Task<IActionResult> Post([FromBody] Movie movie)
+        {
             _context.Add(movie);
             await _context.SaveChangesAsync();
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(long id) {
+        public async Task<IActionResult> Delete(long id)
+        {
             var movie = await _context.Movies.SingleOrDefaultAsync(m => m.Id == id);
             _context.Movies.Remove(movie);
             await _context.SaveChangesAsync();
