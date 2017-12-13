@@ -1,3 +1,5 @@
+Vue.component("inputTag", InputTag);
+
 Vue.component('prefs', {
   template: `<div class='prefs'>
                <label>API Key</label>
@@ -5,6 +7,8 @@ Vue.component('prefs', {
                  id="apiKey"
                  v-on:change=propChanged($event)
                  v-bind:value=preferences.apiKey />
+               <label>Categories</label>
+               <input-tag :on-change="callbackMethod" :tags="preferences.categories"></input-tag>
              </div>`,
   props: ['preferences'],
   methods: {
