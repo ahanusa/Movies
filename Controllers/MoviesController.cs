@@ -23,7 +23,8 @@ namespace movies.Controllers
         [HttpGet]
         public async Task<IEnumerable<Movie>> Get()
         {
-            return await _context.Movies.ToListAsync();
+            // return await _context.Movies.ToListAsync();
+            return await _context.Movies.Include(e => e.MovieCategories).ToListAsync();
         }
 
         [HttpPost]
