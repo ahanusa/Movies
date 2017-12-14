@@ -7,6 +7,5 @@ namespace Movies.Models
   {
     public long Id { get; set; }
     public string Name { get; set; }
-    public ICollection<MovieCategory> MovieCategories { get; set; }
   }
 }

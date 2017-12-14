@@ -8,6 +8,5 @@ namespace Movies.Models
     public long Id { get; set; }
     public string ImageUrl { get; set; }
     public string Title { get; set; }
-    public ICollection<MovieCategory> MovieCategories { get; set; }
   }
 }
