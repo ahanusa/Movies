@@ -14,7 +14,9 @@
     </header>
     <main>
         <prefs v-bind:preferences="preferences"
-               v-on:pref-changed="savePreferences">
+               v-on:pref-changed="savePreferences"
+               v-on:category-added="addCategory"
+               v-on:category-deleted="deleteCategory">
         </prefs>
     </main>
     <footer>
@@ -22,6 +24,7 @@
 </div>
 
 <environment include="Development">
+    <script src="~/js/shared/inputTags.js"></script>
     <script src="~/js/prefs/prefs.js"></script>
     <script src="~/js/prefs/prefsHost.js"></script>
 </environment>

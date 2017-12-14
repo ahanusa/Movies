@@ -31,7 +31,7 @@ namespace movies.Controllers
         {
             _context.Add(category);
             await _context.SaveChangesAsync();
-            return Ok();
+            return Created("", category);
         }
 
         [HttpDelete("{id}")]
