@@ -322,3 +322,12 @@ input[type=text] {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+div.vue-input-tag-wrapper {
+  border: none;
+  margin: 5px;
+  outline: none;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}

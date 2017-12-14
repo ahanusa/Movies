@@ -5,9 +5,7 @@ var app = new Vue({
   },
   created: function() {
     let prefs = window.localStorage.getItem('preferences');
-    this.preferences = JSON.parse(prefs) || {};
-    this.preferences.categories = [];
-    this.preferences.categories.push("Horror", "Comedy");
+    this.preferences = JSON.parse(prefs) || { categories: [] };
   },
   methods: {
     savePreferences: function(key, value) {
