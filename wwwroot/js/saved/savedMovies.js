@@ -5,7 +5,8 @@ var app = new Vue({
     queuedMovies: [],
     searchText: '',
     showModal: false,
-    deleteId: null
+    deleteId: null,
+    selectedMovies: new Map()
   },
   created: function() {
     let endpoint = "/api/movies";
@@ -25,6 +26,14 @@ var app = new Vue({
     deleteMovie: function(movieId) {
       this.deleteId = movieId;
       this.showModal = true;
+    },
+    selectMovie: function(movieId) {
+      var movie = this.movies.find(m => m.id == movieId);
+      movie.isSelected = !movie.isSelected;
+      this.getSelectedMovies();
+    },
+    getSelectedMovies: function() {
+      console.log("SELECTED: ", this.movies.filter(m => m.isSelected));
     },
     closeModal: function(result) {
       this.showModal = false;

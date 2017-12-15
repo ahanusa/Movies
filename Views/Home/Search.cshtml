@@ -17,7 +17,8 @@
         <movies-list
             v-bind:movies="filteredMovies"
             v-on:add-request="addToQueue"
-            v-on:delete-request="deleteMovie">
+            v-on:delete-request="deleteMovie"
+            v-on:movie-selected="selectMovie">
         </movies-list>
         <modal
             v-bind:show="showModal"
@@ -32,4 +33,14 @@
     </footer>
 </div>
 
-<script src="~/js/saved/site.min.js"></script>
+<environment include="Development">
+    <script src="~/js/shared/searchBox.js"></script>
+    <script src="~/js/shared/modal.js"></script>
+    <script src="~/js/shared/moviesList.js"></script>
+    <script src="~/js/saved/movieQueue.js"></script>
+    <script src="~/js/saved/savedMovies.js"></script>
+</environment>
+
+<environment exclude="Development">
+    <script src="~/js/saved/site.min.js"></script>
+</environment>
