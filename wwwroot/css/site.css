@@ -330,4 +330,41 @@ div.vue-input-tag-wrapper {
   background-color: black;
   color: white;
   font-size: 20px;
+  overflow: inherit;
+}
+
+.filters {
+  color: white;
+  display: inline;
+}
+
+.foo {
+  display: inline;
+}
+
+.foo div {
+  display: inline;
+  overflow: none;
+}
+
+select {
+  background: #555555;
+  border: none;
+  color: white;
+  height: 40px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.foo .vue-input-tag-wrapper .input-tag {
+  border: none;
+  margin: 5px;
+  outline: none;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+
+.foo .vue-input-tag-wrapper .input-tag .remove {
+  color: #4CAF50; /* Green */
 }

@@ -1,9 +1,7 @@
 Vue.component("inputTag", InputTag);
 
 Vue.component('inputTags', {
-  template: `<div>
-               <input-tag :on-change="tagChanged" :tags="tags"></input-tag>
-             </div>`,
+  template: `<input-tag :on-change="tagChanged" :tags="tags"></input-tag>`,
   data: function() {
     return {
       currentTags: []

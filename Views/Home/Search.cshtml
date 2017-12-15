@@ -5,6 +5,18 @@
 <div id="app" class="container">
     <header>
         <search-box v-model="searchText"></search-box>
+        <div class="filters">
+            <label>FILTERS</label>
+            <select>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes in the house!!</option>
+                <option value="audi">Audi</option>
+            </select>
+            <div class="foo">
+                <input-tags></input-tags>
+            </div>
+        </div>
         <div class="menu">
             <ul>
                 <li><a asp-controller="Home" asp-action="Index">ADD</a></li>
@@ -34,6 +46,7 @@
 </div>
 
 <environment include="Development">
+    <script src="~/js/shared/inputTags.js"></script>
     <script src="~/js/shared/searchBox.js"></script>
     <script src="~/js/shared/modal.js"></script>
     <script src="~/js/shared/moviesList.js"></script>
