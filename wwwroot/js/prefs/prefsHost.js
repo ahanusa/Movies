@@ -21,7 +21,6 @@ var app = new Vue({
     addCategory: function(value) {
       let endpoint = `/api/categories/`;
       axios.post(endpoint, { name: value }).then(response => {
-        debugger;
         this.preferences.categories.push(response.data);
       });
     },
