@@ -3,6 +3,7 @@ var app = new Vue({
   data: {
     movies: [],
     categories: [],
+    movieCategories: [],
     queuedMovies: [],
     searchText: '',
     showModal: false,
@@ -13,8 +14,13 @@ var app = new Vue({
   created: function() {
     let moviesEndpoint = "/api/movies";
     let categoriesEndpoint = "/api/categories";
+    let movieCategoriesEndpoint = "/api/movieCategories";
     axios.get(moviesEndpoint).then(response => app.movies = _.sortBy(response.data.map(mapData), "title"));
     axios.get(categoriesEndpoint).then(response => app.categories = _.sortBy(response.data, "name"));
+    axios.get(movieCategoriesEndpoint).then(response => {
+      app.movieCategories = response.data;
+      console.log("MOVIE CATS", app.movieCategories);
+    });
   },
   methods: {
     addToQueue: function(movieId) {
