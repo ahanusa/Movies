@@ -7,14 +7,16 @@
         <search-box v-model="searchText"></search-box>
         <div class="filters">
             <label>FILTERS</label>
-            <select>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes in the house!!</option>
-                <option value="audi">Audi</option>
+            <select v-on:change="categorySelected($event)">
+                <option v-for="category in categories" v-bind:value="category.id">
+                    {{ category.name }}
+                </option>
             </select>
             <div class="foo">
-                <input-tags></input-tags>
+                <input-tags
+                    v-bind:tags="getSelectedCategories()"
+                    v-on:tag-deleted="removeSelectedTag($event)" >
+                </input-tags>
             </div>
         </div>
         <div class="menu">
@@ -29,12 +31,12 @@
         <movies-list
             v-bind:movies="filteredMovies"
             v-on:add-request="addToQueue"
-            v-on:delete-request="deleteMovie"
+            v-on:delete-request="confirmDelete"
             v-on:movie-selected="selectMovie">
         </movies-list>
         <modal
             v-bind:show="showModal"
-            v-on:close="closeModal">
+            v-on:close="deleteMovie">
         </modal>
     </main>
     <footer>

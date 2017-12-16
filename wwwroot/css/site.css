@@ -73,7 +73,7 @@ input[type=text] {
 }
 
 .movie .selected {
-  border: 5px solid white;
+  border: 10px solid yellowgreen;
 }
 
 .loaded {

@@ -24,8 +24,8 @@ var app = new Vue({
         this.preferences.categories.push(response.data);
       });
     },
-    deleteCategory: function(category) {
-      let cat = this.preferences.categories.find(c => c.name === category);
+    deleteCategory: function(categoryName) {
+      let cat = this.preferences.categories.find(c => c.name === categoryName);
       let endpoint = `/api/categories/${cat.id}`;
       axios.delete(endpoint).then(response => {
         this.preferences.categories.splice(this.preferences.categories.indexOf(cat), 1);

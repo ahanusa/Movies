@@ -22,6 +22,23 @@ Vue.component('inputTags', {
       this.currentTags.push(added);
       this.$emit('tag-added', added);
     }
+  },
+  watch: {
+    tags: function(previous, next) {
+      if (this.tags.length === this.currentTags.length) {
+        console.log("THINGS ARE EQUAL");
+        console.log("TAGS", this.tags.length);
+        console.log("CURRENT", this.currentTags.length);
+        return;
+      }
+      this.tagChanged(this.tags);
+
+      console.log("PREVIOUS", previous.length);
+      console.log("NEXT", next.length);
+      console.log("TAGS", this.tags.length);
+      console.log("CURRENT", this.currentTags.length);
+      // this.tagChanged(previous);
+    }
   }
 });
 

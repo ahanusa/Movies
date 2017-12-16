@@ -51,8 +51,6 @@ Vue.component('movieQueue', {
   },
   watch: {
     movies: function(previous, next) {
-      console.log("PREV", previous);
-      console.log("NEXT", next);
       if (this.movies.length) return this.expand();
       this.collapse();
     }

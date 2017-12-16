@@ -2,15 +2,19 @@ var app = new Vue({
   el: '#app',
   data: {
     movies: [],
+    categories: [],
     queuedMovies: [],
     searchText: '',
     showModal: false,
     deleteId: null,
-    selectedMovies: new Map()
+    selectedMovies: new Map(),
+    selectedCategories: []
   },
   created: function() {
-    let endpoint = "/api/movies";
-    axios.get(endpoint).then(response => app.movies = _.sortBy(response.data.map(mapData), "title"));
+    let moviesEndpoint = "/api/movies";
+    let categoriesEndpoint = "/api/categories";
+    axios.get(moviesEndpoint).then(response => app.movies = _.sortBy(response.data.map(mapData), "title"));
+    axios.get(categoriesEndpoint).then(response => app.categories = _.sortBy(response.data, "name"));
   },
   methods: {
     addToQueue: function(movieId) {
@@ -23,7 +27,7 @@ var app = new Vue({
       var movie = this.queuedMovies.find(m => m.id == movieId);
       this.queuedMovies.splice(this.queuedMovies.indexOf(movie), 1);
     },
-    deleteMovie: function(movieId) {
+    confirmDelete: function(movieId) {
       this.deleteId = movieId;
       this.showModal = true;
     },
@@ -35,7 +39,18 @@ var app = new Vue({
     getSelectedMovies: function() {
       console.log("SELECTED: ", this.movies.filter(m => m.isSelected));
     },
-    closeModal: function(result) {
+    getSelectedCategories: function() {
+      return this.selectedCategories.map(c => c.name);
+    },
+    categorySelected: function(e) {
+      var category = this.categories.find(c => c.id == e.target.value);
+      this.selectedCategories.push(category);
+    },
+    removeSelectedTag: function(category) {
+      var cat = this.categories.find(c => c.name == category);
+      this.selectedCategories.splice(this.selectedCategories.indexOf(cat), 1);
+    },
+    deleteMovie: function(result) {
       this.showModal = false;
       if (result) {
         let movieId = this.deleteId;
