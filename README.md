@@ -32,3 +32,6 @@ sudo -u www-data dotnet dir/Movies.dll
 
 ## Own directory
 sudo chown -R www-data:www-data /dir
+
+## Inspired By
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/index
